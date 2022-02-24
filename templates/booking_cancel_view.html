@@ -1,0 +1,45 @@
+ {% extends 'base.html' %}
+
+{% block content %}
+
+
+<body>
+
+    <!-- Main Content -->
+    <div class="content">
+
+        
+        <!-- Room Details -->
+        <div class="room">
+
+         
+            <!-- Div 2: Room Information -->
+            <div class="col-12 text-center mt-5">
+                <h1 class="text-dark pt-4">{{booking.destination}}</h1>
+            </div>            
+
+            <!-- Div 3: Room Booking Form -->
+            <form id="booking-form" action="" method="POST">
+
+                {% csrf_token %}
+                <div class="col-12 text-center mt-5">
+                    <h2 class="text-dark pt-4">Are you sure you wanna cancel this Booking? </h2>
+                    <h6 class="text-dark pt-4">Details-{{booking.get_room_category}} {{booking}} </h6>
+                </div> 
+
+
+               
+                <!-- Input Div -->
+                <div class="input-div">
+                    <button type="submit">Cancel this Booking</button>
+                </div>
+
+            </form>
+
+        </div> <!-- END Room Div -->
+
+    </div> <!-- END Main Content Div -->
+
+</body>
+
+{% endblock %}  

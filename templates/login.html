@@ -1,0 +1,30 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+
+
+
+
+        <h1>Login</h1>
+        
+        <form action="login" method="post">
+        {% csrf_token %}
+        <input type="text" name="username" placeholder="Fill Username"><br>
+        <input type="password" name="password" placeholder="Password"><br>
+        <input type="Submit">
+        </form>
+
+        <h5 class="row text-light text-center py-4 justify-content-center">
+                Need an account? <a class="ml-2" href="/accounts/register"> Register Now</a>
+        </h5>
+
+        <div>
+            {% for message in messages %}
+            <h3> {{message}} </h3>
+            {% endfor %}
+        </div>
+
+       
+   
+{% endblock %}

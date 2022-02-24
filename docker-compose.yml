@@ -1,0 +1,8 @@
+version: '3'
+
+services: 
+    homestay:
+      build: .
+      command: bash -c "python manage.py makemigrations && python manage.py migrate && python manage.py runserver 0.0.0.0:8000"
+      ports: 
+        - 9004:8000

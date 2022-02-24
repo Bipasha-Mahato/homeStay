@@ -1,0 +1,38 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+<body>
+    <div class="content">
+        <div class="header">
+            <div class="headings">
+                <h1>Welcome Dear {{user}}</h1>
+                <h2>Your Bookings</h2>
+                
+            </div>
+            
+
+        </div>
+
+        <div class="bookings">
+            {% for booking in booking_list %}
+            <div class="booking">
+                <div class="category">
+                    <h2>Destination:{{booking.destination}} </h2>
+                </div>
+                <div class="from">
+                    <h2>From: {{booking.check_in}}</h2>
+                </div>
+                <div class="to">
+                    <h2>To: {{booking.check_out}}</h2>
+                </div>
+                
+                <div class="cancel"><a href="{{booking.get_cancel_booking_url}}" > Cancel this Booking </a>
+                </div>
+
+            </div>
+            {% endfor %}
+        </div>
+</body>
+
+{% endblock %} 

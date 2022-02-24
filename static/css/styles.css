@@ -1,0 +1,399 @@
+/*-- Body Reset --*/
+
+body {
+    overflow-x: hidden;
+    font-family: 'Montserrat', sans-serif;
+    color: #616971;
+    background-color: #999bb9!important;
+}
+
+
+/*============= NAVIGATION =============*/
+
+.navbar {
+    font-size: 1.15rem;
+    font-weight: 600;
+    letter-spacing: .1rem;
+    box-shadow: 0 .5rem .5rem rgba(241, 12, 12, 0.623);
+    z-index: 1;
+    background-color: #3a085c!important;
+}
+
+.nav-item {
+    padding: .5rem;
+}
+
+.nav-link {
+    color: #5b5555!important;
+}
+
+.nav-link.active,
+.nav-link :hover {
+    color: #4981b3!important;
+}
+
+
+/*============= CAROUSEL =============*/
+
+#carousel {
+    box-shadow: 0 1rem 1rem rgba(0, 0, 0, 0.1);
+}
+
+.carousel-inner {
+    max-height: 38rem!important;
+}
+
+
+/*---Change Carousel Transition Speed --*/
+
+.carousel-item-next,
+.carousel-item-prev,
+.carousel-item.active {
+    transition: transform 1.2s ease;
+}
+
+
+/*-- Carousel Content --*/
+
+.bg-custom h1 {
+    top: 54%;
+    margin-top: 100px;
+    font-size: 55px;
+    margin-bottom: 10px;
+}
+
+.bg-custom p {
+    font-size: 20px;
+    text-align: center;
+}
+
+
+/*-- Destinations --*/
+
+.destinations {
+    margin-top: 2rem;
+    flex: 1;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: space-evenly;
+}
+
+.destination {
+    flex: 1;
+    max-width: 20vw;
+    min-width: 20rem;
+    text-align: left;
+    border: 1px solid #dbdbdb;
+    padding: 1rem;
+    border-radius: 0.75rem;
+    margin: 1rem;
+    background: #15331a;
+}
+
+
+/* registration form */
+
+h1 {
+    margin-top: 6rem!important;
+    text-align: center;
+    font-size: 50px;
+    color: rgb(46, 80, 109);
+}
+
+form {
+    margin: 20 px auto;
+    width: 20 px;
+    color: rgb(28, 63, 92);
+    text-align: center;
+}
+
+input {
+    padding: 10px;
+    font-size: inherit;
+}
+
+input[type="text"] {
+    display: inline-block;
+    margin-bottom: 25px;
+    width: 300px;
+    border: 1px solid steelblue;
+    background: rgb(4, 240, 75);
+    text-align: center;
+}
+
+input[type="Password"] {
+    display: inline-block;
+    margin-bottom: 25px;
+    width: 300px;
+    border: 1px solid steelblue;
+    background: rgb(4, 240, 75);
+    text-align: center;
+}
+
+input[type="email"] {
+    display: inline-block;
+    margin-bottom: 25px;
+    width: 300px;
+    border: 1px solid steelblue;
+    background: rgb(4, 240, 75);
+    text-align: center;
+}
+
+input[type="submit"] {
+    width: 244px;
+    height: 45px;
+    border: none;
+    background: steelblue;
+    color: rgb(42, 214, 142);
+}
+
+input[type="submit"]:focus {
+    width: 244px;
+    height: 45px;
+    border: solid steelblue;
+    background: white;
+    color: steelblue;
+}
+
+input:focus {
+    background: white;
+}
+
+h3 {
+    text-align: center;
+    font-size: 50px;
+    color: black;
+}
+
+
+/* For particular destination booking */
+
+.input-div {
+    padding: 10px;
+    font-size: inherit;
+}
+
+.input-div [type="date"] {
+    display: inline-block;
+    margin-bottom: 25px;
+    width: 300px;
+    border: 1px solid steelblue;
+    background: rgb(4, 240, 75);
+    text-align: center;
+}
+
+.input-div [type="submit"] {
+    width: 200px;
+    height: 45px;
+    border: none;
+    background: rgb(107, 130, 150);
+    color: rgb(9, 27, 5);
+}
+
+
+/* FOR BOOKING CSS */
+
+.content {
+    display: flex;
+    flex-direction: column;
+}
+
+.header {
+    flex: 1;
+    display: flex;
+    flex-flow: row-reverse wrap;
+    justify-content: space-evenly;
+    align-items: center;
+    margin-top: 1rem!important;
+}
+
+.headings {
+    flex: 1.5;
+}
+
+.headings h1,
+.headings h2 {
+    flex: 1;
+    text-align: center;
+    font-size: 40px;
+}
+
+.bookings {
+    margin-top: 2rem;
+    flex: 1;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: space-evenly;
+}
+
+.booking {
+    flex: 1;
+    max-width: 20vw;
+    min-width: 20rem;
+    text-align: left;
+    border: 1px solid #dbdbdb;
+    padding: 1rem;
+    border-radius: 0.75rem;
+    margin: 1rem;
+    background: #e3e0eb;
+}
+
+.booking h2,
+.booking a {
+    margin: 1rem;
+    font-size: 20px!important;
+}
+
+.booking:hover {
+    cursor: pointer;
+}
+
+
+/*===== About =====*/
+
+.dark {
+    flex: 1;
+    margin-top: 10px!important;
+    background: #41cc17!important;
+    color: #ffffff;
+    margin: 10px;
+    padding: 20px;
+    float: right;
+    margin-top: 10px!important;
+}
+
+
+/*============= FOOTER =============*/
+
+footer {
+    margin-top: 7rem;
+    background-color: #101666;
+    padding: auto;
+}
+
+footer p,
+footer a {
+    color: white;
+    text-decoration: none;
+}
+
+ul.social {
+    list-style-type: none;
+    display: flex;
+    max-width: 16rem;
+    margin: 0 auto;
+    padding: 0;
+}
+
+ul.social li {
+    margin: 0 auto;
+}
+
+footer .svg-inline--fa:hover {
+    color: #68a0d2;
+}
+
+footer .svg-inline--fa {
+    font-size: 2.3rem;
+}
+
+
+/*============= MEDIA QUERIES =============*/
+
+
+/* Devices under 1199px (xl) */
+
+@media (max-width: 1199.98px) {}
+
+
+/* Devices under 768px (md) */
+
+@media (max-width: 767.98px) {}
+
+
+/*============ BOOTSTRAP BREAK POINTS:
+
+Extra small (xs) devices (portrait phones, less than 576px)
+No media query since this is the default in Bootstrap
+
+Small (sm) devices (landscape phones, 576px and up)
+@media (min-width: 576px) { ... }
+
+Medium (md) devices (tablets, 768px and up)
+@media (min-width: 768px) { ... }
+
+Large (lg) devices (desktops, 992px and up)
+@media (min-width: 992px) { ... }
+
+Extra (xl) large devices (large desktops, 1200px and up)
+@media (min-width: 1200px) { ... }
+
+=============*/
+
+
+/*-- Bootstrap Mobile Gutter Fix --*/
+
+.row,
+.container-fluid {
+    margin-left: 0px !important;
+    margin-right: 0px !important;
+}
+
+
+/*-- Fixed Background Image --*/
+
+.fixed-background {
+    position: relative;
+    width: 100%;
+    z-index: 1000!important;
+}
+
+.fixed-wrap {
+    clip: rect(0, auto, auto, 0);
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: -999 !important;
+}
+
+.fixed {
+    z-index: -999!important;
+    display: block;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-size: cover;
+    background-position: center center;
+    -webkit-transform: translateZ(0);
+    transform: translateZ(0);
+    will-change: transform;
+}
+
+
+/* FOR DESTINATION_DETAIL_VIEW CSS */
+
+.content {
+    display: flex;
+    flex-direction: column;
+}
+
+.room {
+    flex: 1;
+    display: flex;
+    flex-flow: row-reverse wrap;
+    justify-content: space-evenly;
+    align-items: center;
+    margin-top: 1rem!important;
+}
+
+.room h3,
+.room h4 {
+    flex: 1;
+    text-align: center;
+    font-size: 40px;
+}

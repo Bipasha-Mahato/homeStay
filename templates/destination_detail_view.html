@@ -1,0 +1,225 @@
+{% load static %}
+{% static "ima" as baseUrl %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <meta name="author" content="KBS">
+  <title>Welcome to Tribe Home Stay </title>
+  <link rel="shortcut icon" href="img/favicon.ico">
+  <!-- Bootstrap 4.5 CSS -->
+  <link rel="stylesheet" href="{% static 'css/bootstrap.min.css'%}">
+  <!-- Style CSS -->
+  <link rel="stylesheet" href="{% static 'css/styles.css'%}">
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css?family=Montserrat:300,400,500,600,700&display=swap" rel="stylesheet">
+  <!--date picker -->
+  <link href="{% static 'js/jquery-ui-1.12.1/jquery-ui.min.css' %}" rel="stylesheet">
+  <link href="{% static 'js/jquery-ui-1.12.1/jquery-ui.structure.min.css' %}" rel="stylesheet">
+  <link href="{% static 'js/jquery-ui-1.12.1/jquery-ui.theme.min.css' %}" rel="stylesheet">
+
+
+  <script src="{% static 'css/jquery-3.5.1.min.js' %}"></script>
+  <script src="{% static 'js/jquery-ui-1.12.1/jquery-ui.js' %}"></script>
+  
+
+<script>
+    $(document).ready(function() {
+        var minDate = new Date();
+        $("#check_in").datepicker({
+            showAnim: 'drop',
+            numberOfMonth: 1,
+            minDate: minDate,
+            dateFormat: 'mm/dd/yy',
+            onClose: function (selectedDate) {
+                $('#check_out').datepicker("option" ,"minDate", selectedDate);
+            }
+        });
+
+        $('#check_out').datepicker({
+            showAnim: 'drop',
+            numberOfMonth: 1,
+            minDate: minDate,
+            dateFormat: 'mm/dd/yy',
+            {% comment %} onClose: function() {
+                $('#check_in').datepicker("option", "minDate");
+            } {% endcomment %}
+        });  
+
+    });
+
+    
+</script>
+
+
+
+
+</head>
+<body>
+
+<header>
+  <nav class="navbar navbar-expand-md navbar-dark fixed-top bg-dark">
+    <div class="container">
+      <a class="navbar-brand" href="/">TribeHomeConnect</a>
+      <button class="navbar-toggler " type="button" data-toggle="collapse" data-target="#navbarResponsive">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      
+      
+      <div class="collapse navbar-collapse" id="navbarResponsive">
+      
+        <ul class="navbar-nav ml-auto">
+          <li class="nav-item active">
+            <a class="nav-link" href="/">Home <span class="sr-only"></span></a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="/about">About <span class="sr-only"></span></a>
+          </li>
+          {% if user.is_authenticated %}
+          <li class="nav-item">
+            <p class="nav-link"> Hello, {{user.username }} <span class="sr-only"></span></p>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="/booking/booking_list">Booking's <span class="sr-only"></span></a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="/accounts/logout">Log Out <span class="sr-only"></span></a>
+          </li>
+          {% else %}
+
+            <li class="nav-item">
+              <a class="nav-link" href="/admin">Admin <span class="sr-only"></span></a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="/accounts/login">Login <span class="sr-only"></span></a>
+            </li>
+        
+            <li class="nav-item">
+              <a class="nav-link" href="/accounts/register">Register <span class="sr-only"></span></a>
+            </li>
+          
+          
+          {% endif %}                    
+        </ul>
+      </div>
+    </nav>
+  </nav>
+</header>
+
+
+    
+
+
+<body>
+    <!-- Main Content -->
+    <div class="container">
+        <!-- Room Details -->
+        <div class="room">
+            <!-- Div 2: Room Information -->
+            <div class="col-12 text-center mt-5">
+                <img src="{{destination_ima.url}}" alt="Image loading....">
+            </div>
+            <div class="col-12 text-center mt-10">
+                <h1 class="text-dark pt-8">Destination:{{destination_name}}</h1>
+                
+            </div>
+
+            <div class="col-12 text-center mt-10">
+                <h2 class="text-dark pt-4">Description:{{destination_desc}}</h2>
+                
+            </div>
+
+            <div class="col-12 text-center mt-10">
+                <h2 class="text-dark pt-4">Price:{{destination_price}}</h2>
+                <label style="display:none;" id="lblprice" >{{destination_price}}</label>
+                
+            </div>
+
+            <div class="col-12 text-center mt-10">
+                <h2 class="text-dark pt-4">Address:{{destination_address}}</h2>
+                
+            </div>
+
+                        
+            
+
+            <!-- Div 3: Room Booking Form -->
+            <form id="booking-form" action="" method="POST">
+
+                {% csrf_token %}
+
+                <!-- Input Div -->
+                <div class="input-div">
+                    <label for="check_in">Check In : </label>
+                    <input type="text" id="check_in" name="check_in" placeholder="mm/dd/yyyy">
+                </div>
+
+                <!-- Input Div -->
+                <div class="input-div">
+                    <label for="check_out">Check Out : </label>
+                    <input type="text" id="check_out" name="check_out" placeholder="mm/dd/yyyy">
+                </div> 
+
+<script
+                  
+                   
+    src="https://checkout.razorpay.com/v1/checkout.js"
+    data-key="rzp_test_YMotQikULPyely" // Enter the Test API Key ID generated from Dashboard → Settings → API Keys
+    data-amount={{destination_amt}}   // Amount is in currency subunits. Hence, 29935 refers to 29935 paise or ₹299.35.
+    data-currency="INR"//You can accept international payments by changing the currency code. Contact our Support Team to enable International for your account
+    {% comment %} data-order_id="ord1"//Replace with the order_id generated by you in the backend. {% endcomment %}
+    data-buttontext="Pay with Razorpay"
+    data-name="TribeHomeConnect"
+    data-description="Betterment of Chhattisgarh"
+    data-image="https://www.google.com/url?sa=i&url=https%3A%2F%2Fstay-list.com%2Fa-India%2Fa-Chhattisgarh%2Fl-house%2F&psig=AOvVaw07ceck0vMyXKYQ5dYLh7QB&ust=1612505373991000&source=images&cd=vfe&ved=0CAIQjRxqFwoTCOiqo-rIz-4CFQAAAAAdAAAAABAD"
+    data-prefill.name="NAME"
+    data-prefill.email="abc@gmail.com"
+    data-theme.color="#F37254"
+>
+</script>
+<input type="hidden" custom="Hidden Element" name="hidden">  	            	   
+                        
+                <!-- Input Div -->
+                {% comment %} <div class="input-div">
+                    <button type="submit">Book Now and Pay later</button>
+                </div>  {% endcomment %}
+
+            </form>
+        </div>
+    </div> 
+</body>
+
+<footer>
+    <div class="container">
+      <div class="row text-light text-center py-4 justify-content-center">
+        <div class="col-sm-10 col-md-8 col-lg-6"
+          <h1>Connect with us:</h1>
+          <ul class="social pt-3">
+            <li><a href="#" target="_blank"><i class="fab fa-facebook"></i></a></li>
+            <li><a href="#" target="_blank"><i class="fab fa-twitter"></i></a></li>
+            <li><a href="#" target="_blank"><i class="fab fa-instagram"></i></a></li>
+            <li><a href="#" target="_blank"><i class="fab fa-youtube"></i></a></li>
+          </ul><br>
+          <p>TribeConnect team,Copyright &copy; 2020</p>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+
+
+  <!-- Script Source Files -->
+  <!-- jQuery -->
+  {% comment %} <script src="{% static 'js/jquery-3.5.1.min.js'%}"></script> {% endcomment %}
+  <!-- Bootstrap 4.5 JS -->
+  <script src="{% static 'js/bootstrap.min.js'%}"></script>
+  <!-- Popper JS -->
+  <script src="{% static 'js/popper.min.js'%}"></script>
+  <!-- Font Awesome -->
+  <script src="{% static 'js/all.min.js'%}"></script> 
+
+  <!-- End Script Source Files -->
+</body>
+</html>
